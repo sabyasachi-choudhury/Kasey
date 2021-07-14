@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+{% block c_loc %}{% endblock %}
+{% block body %}
+
+    <h1 class="display-5 text-center">Round Square</h1>
+    <div id="rs-carousel" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#rs-carousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#rs-carousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#rs-carousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        <button type="button" data-bs-target="#rs-carousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
+      </div>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="https://www.nicepng.com/png/full/287-2877057_risslogo-partners-round-square-round-square.png" class="d-block w-100" alt="..." height="650" width="650">
+        </div>
+        <div class="carousel-item">
+          <img src="https://foodtank.com/wp-content/uploads/2016/11/UN_FAO_op_ed_Food_Tank.jpg" class="d-block w-100" alt="..." height="650">
+        </div>
+        <div class="carousel-item">
+          <img src="https://www.roundsquare.org/wp-content/uploads/2019/01/DSC_0769-1200x801.jpg" class="d-block w-100" alt="..." height="650">
+        </div>
+        <div class="carousel-item">
+          <img src="https://i1.wp.com/www.thearabianstories.com/wp-content/uploads/2019/12/school-1.jpg?w=768&ssl=1" class="d-block w-100" alt="..." height="650">
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#rs-carousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#rs-carousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+    <p class="text-center lead" style="position:absolute; top:800px;">
+        This is an international conference of schools sharing a number of ideals
+        and attitudes, and having a common way of education as being vitally
+        concerned with the development of the whole person. Representatives of six
+        schools whose philosophy and ideals were inspired by late Dr Kurt Hahn, the
+        founder of the Salem (Germany) and Gordonstoun (Scotland) schools, met in
+        Salem in 1966, and under the chairmanship of His Majesty King Constantine of
+        Greece, decided to start the conference. The second meeting took place at
+        Gordonstoun in a building called Round Square and the conference was named
+        thus.
+        <br>
+         Scotland the administrative centre of an estate is often called the
+        square, and the square at Gordonstoun is a beautiful and unique circular
+        stone building constructed in the 17th century and the name is derived from
+        it. The conference, which a different school hosts each year to mixed
+        delegations of heads, staff, pupils and governors, provides an annual forum
+        for the exchange of experiences and views, and for the initiation and
+        development of service projects.
+        <br>
+        Its Governing Council comprises His Majesty
+        King Constantine of Greece (Chairman), H.R.H. The Duke of Yorks, Mrs. Sonia
+        Gandhi, Mr. Nelson Mandela, former President of the Republic of South
+        Africa, and Mr. R. Kevan Gosper. Its mission is "Round Square is a worldwide
+        association of schools which share a commitment, beyond academic excellence,
+        to personal development and responsibility through service, challenge,
+        adventure and international understanding".
+    </p>
+    <hr>
+    <style>
+      #bottom-carousel{
+        position:absolute;
+        top:1150px;
+      }
+      #rs-carousel{
+        width:900px;
+        margin:auto;
+      }
+    </style>
+{% endblock %}

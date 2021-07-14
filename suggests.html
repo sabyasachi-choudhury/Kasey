@@ -1,0 +1,187 @@
+{% extends "base.html" %}
+{% block c_loc %} Suggestions {% endblock %}
+{% block body %}
+  <div id="instructions" class="text-center" style="margin:20px;">
+    <h1 class="display-6">SUGGESTIONS PAGE</h1>
+    <p class="lead">
+      Well, hello there!<br>
+      You might be wondering what this page is. Well, this is how we teach Kasey, whom you have already met, how to communicate with people.
+      <br>
+      You see, Kasey is a machine and so, the more information you give her, the better she becomes. However, we can't know what information to give here
+      without your help!
+      Here's the list of all the different categories of sentences which Kasey can recognize and properly respond to:
+    </p>
+
+    <div class="dropdown">
+      <button class="btn btn-lg btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" data-bs-auto-close="false" aria-expanded="false">
+        Existing classes with patterns
+      </button>
+      <ul id="existingClassesDropdown" class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+      </ul>
+    </div>
+
+    <p class="lead">
+      Each of these categories contain a list of sentences which we train Kasey with. <br>
+      Now, how do you contribute? It's quite simple, actually. <br>
+      All you have to do is fill out the below form. You could either add a completely new category which Kasey will
+      look for, or you could add a sentence to look for in a pre-existing category. If you add a new category,
+      you'll also have to enter a new sentence which Kasey will respond with.
+    </p>
+    <hr>
+  </div>
+
+    <center>
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#oldClassModal">
+            Add to a pre-existing class
+        </button>
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#newClassModal">
+            Add a completely new class
+        </button>
+    </center>
+    <hr class="text-center" style="margin:20px;">
+
+<!--Form Modal1--   --preexisting class-->
+    <div class="modal fade" id="oldClassModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">
+                Thanks for all the help!
+            </h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+
+            <form id="newPatternForm">
+              <label for="classes" class="form-label">Choose the class to which you wish to add a pattern</label>
+              <select name="classes" id="classes" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+              </select>
+              <div class="mb-3">
+                <label for="newPattern" class="form-label">Enter your new Pattern</label>
+                <input placeholder="No need to add any punctuation other tha periods and commas" name="newPattern" type="text" class="form-control" id="newPattern" aria-describedby="emailHelp">
+              </div>
+              <br>
+              <button type="submit" name="submitOld" class="btn btn-primary" id="submitOld">Submit</button>
+            </form>
+
+          </div>
+          <div class="modal-footer" id="newPatternFooter"></div>
+        </div>
+      </div>
+    </div>
+<!--End form modal-->
+
+<!--Form Modal 2 --- New class -->
+    <div class="modal fade" id="newClassModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel2">
+                Thanks for all the help!
+            </h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="dropdown">
+              <button class="btn btn-secondary dropdown-toggle" data-bs-auto-close="false" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
+                Existing classes with patterns
+              </button>
+              <ul id="existingClassesModalDropdown" class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+              </ul>
+            </div>
+            <form id="newClassForm">
+              <div class="mb-3">
+                <label for="newClass" class="form-label">Enter your new class</label>
+                <input placeholder="The new class name should be different from existing ones" name="newClass" type="text" class="form-control" id="newClass" aria-describedby="emailHelp">
+              </div>
+              <div class="mb-3">
+                <label for="newClassPattern" class="form-label">Enter your new Pattern</label>
+                <input placeholder="No need to add any punctuation other tha periods and commas" name="newClassPattern" type="text" class="form-control" id="newClassPattern" aria-describedby="emailHelp">
+              </div>
+              <div class="mb-3">
+                <label for="newResponse" class="form-label">Enter your new Response</label>
+                <input name="newResponse" type="text" class="form-control" id="newResponse" aria-describedby="emailHelp">
+              </div>
+              <br>
+              <button type="submit" name="submitNew" class="btn btn-primary" id="submitNew">Submit</button>
+            </form>
+
+          </div>
+          <div class="modal-footer" id="newClassFooter"></div>
+        </div>
+      </div>
+    </div>
+<!--end Form Modal 2-->
+<!--Modal 1 script-->
+    <script>
+          $(document).ready(function(){
+            $.ajax({
+                data:{
+                    ops: "apple",
+                },
+                url:"/fill_options",
+                type:"POST",
+            }).done(function(data){
+                data = data.split('*');
+                var tags = data[0].split('.');
+                var patternCollection = data[1].split('@');
+				for (i=0; i<patternCollection.length; i++){
+				    patternCollection[i] = patternCollection[i].split('-');
+				}
+                for (x=0; x<tags.length; x++){
+                    var op = "<option value=" + tags[x] + ">" + tags[x] + "</option>";
+
+                    var ecdOp = '<li class="dropend"><a class="btn dropdown-item dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">' + tags[x] + '</a><ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">';
+
+                    for (a=0; a<patternCollection[x].length; a++){
+					  var indPat = '<li><a class="dropdown-item" href="#">' + patternCollection[x][a] + '</a></li>';
+					  ecdOp += indPat;
+					}
+
+					ecdOp += '</ul></li>';
+					$("#classes").append(op);
+                    $("#existingClassesDropdown").append(ecdOp);
+                    $("#existingClassesModalDropdown").append(ecdOp);
+                }
+            });
+
+            $("#newPatternForm").on("submit", function(event){
+                var setClass = document.getElementById("classes").value;
+                var newPattern = $("#newPattern").val();
+                $.ajax({
+                    data: {
+                        setClass: setClass,
+                        newPattern: newPattern,
+                    },
+                    type: "POST",
+                    url: "/get_pattern",
+                }).done(function(data){
+                    data = data.split(".#.");
+                    var successMsg = "<p style='margin-right:270px;'>Success! Class: " + data[0] + " Pattern: " + data[1] + "</p>";
+                    $("#newPatternFooter").append($.parseHTML(successMsg));
+                });
+                event.preventDefault();
+            });
+
+            $("#newClassForm").on("submit", function(event){
+              $.ajax({
+                data: {
+                  newClass: $("#newClass").val(),
+                  newPattern: $("#newClassPattern").val(),
+                  newResponse: $("#newResponse").val(),
+                },
+                type: "POST",
+                url: "/new_class_suggest",
+              }).done(function(data){
+                  data = data.split(".#.");
+                  var successMsg = "<p style='margin-right:270px;'>Success! Class: " + data[0] + " Pattern: " + data[1] + "Response: " + data[2] + "</p>";
+                  $("#newClassFooter").append($.parseHTML(successMsg));
+              });
+
+              event.preventDefault();
+            });
+
+          });
+    </script>
+<!--End modal 1 script-->
+{% endblock %}

@@ -1,0 +1,519 @@
+<html lang="en">
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+
+        <style>
+            .userText{
+                border: 5px solid #A2FF94;
+                border-radius: 5px;
+                position: relative;
+                left: 180px;
+                padding:10px;
+                width: 280px;
+                background: #A2FF94;
+                margin-bottom: 20px;
+            }
+            .botText{
+                border: 5px solid #94FFFF;
+                border-radius: 5px;
+                position:relative;
+                left: 0px;
+                padding:10px;
+                width:280px;
+                background: #94FFFF;
+                margin-bottom: 20px;
+            }
+            #userInput{
+                margin-top:30px;
+            }
+            input[type="range"]{
+                transform:rotate(270deg);
+                position:absolute;
+                top: 280px;
+                width:300px;
+            }
+            #volume{
+                right: 300px;
+            }
+            #speed{
+                right:180px;
+            }
+            #volLabel{
+                position: absolute;
+                right: 410px;
+                top: 460px;
+            }
+            #speedLabel{
+                position: absolute;
+                right: 290px;
+                top: 460px;
+            }
+            #mic{
+                width: 32px;
+                height: 32px;
+                border-radius:100px;
+                position: relative;
+                left: 420px;
+                bottom: 35px;
+                background-image: url("https://icons.iconarchive.com/icons/elegantthemes/beautiful-flat-one-color/32/mic-icon.png");
+            }
+            #wiki{
+                background: #234D72;
+                color: white;
+            }
+        </style>
+    </head>
+
+    <body>
+<!--    ---------------------------N A V B A R--------------------------------------->
+
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+
+        <a class="navbar-brand" href="http://127.0.0.1:5000/">
+            <img src="https://is5-ssl.mzstatic.com/image/thumb/Purple124/v4/5a/69/c8/5a69c8c6-fa18-4e33-2b33-6893bf5db2fc/source/512x512bb.jpg" style="height: 60px;">
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+<!--              dropdown 1: About us-->
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                About Us
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="http://127.0.0.1:5000/mission">Mission and Vision</a></li>
+                <li><a class="dropdown-item" href="http://127.0.0.1:5000/aims">Aims</a></li>
+                <li><a class="dropdown-item" href="http://127.0.0.1:5000/founder">Our Founder</a></li>
+                <li><a class="dropdown-item" href="http://127.0.0.1:5000/president">Our President</a></li>
+                <li><a class="dropdown-item" href="http://127.0.0.1:5000/principal">Our Principal</a></li>
+                <li><a class="dropdown-item" href="http://127.0.0.1:5000/management">Our Management Committee</a></li>
+                <li><a class="dropdown-item" href="http://127.0.0.1:5000/timetables">School Timings</a></li>
+                <li><a class="dropdown-item" href="http://127.0.0.1:5000/fees">Fees</a></li>
+                <li><a class="dropdown-item" href="http://127.0.0.1:5000/contact">Contact us</a></li>
+                <li><a class="dropdown-item" href="http://127.0.0.1:5000/registration">Registration</a></li>
+              </ul>
+            </li>
+
+<!--              dropdown2: Media-->
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Media
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="http://127.0.0.1:5000/photos">Photo Gallery</a></li>
+                <li><a class="dropdown-item" href="http://127.0.0.1:5000/videos">Video Gallery</a></li>
+                <li><a class="dropdown-item" href="https://indianschool.com/al-ghubra360/">Virtual Tour</a></li>
+                <li><a class="dropdown-item" href="https://indianschool.com/downloads/calendar/Academic_Calendar.pdf">Calendar</a></li>
+                <li><a class="dropdown-item" href="http://127.0.0.1:5000/circulars">Circulars</a></li>
+              </ul>
+            </li>
+
+<!--              Dropdown 3 academics-->
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown3" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Academics
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="http://127.0.0.1:5000/syllabus">Syllabus</a></li>
+              </ul>
+            </li>
+
+<!--              dropdown4: Round Square stuff-->
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown4" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Round Square
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="http://127.0.0.1:5000/roundsquare">Overview</a></li>
+              </ul>
+            </li>
+
+            <!--              Language options-->
+            <li class="nav-item dropdown" id="translator">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown5" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Change language
+              </a>
+              <ul class="dropdown-menu ct-language__dropdown" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item lang-en lang-select" href="#googtrans(en|en)" data-lang="en">English</a></li>
+                <li><a class="dropdown-item lang-en lang-select" href="#googtrans(en|hi)" data-lang="hi">Hindi</a></li>
+                <li><a class="dropdown-item lang-en lang-select" href="#googtrans(en|ta)" data-lang="ta">Tamil</a></li>
+                <li><a class="dropdown-item lang-en lang-select" href="#googtrans(en|ar)" data-lang="ar">Arabic</a></li>
+                <li><a class="dropdown-item lang-en lang-select" href="#googtrans(en|bn)" data-lang="bn">Bengali</a></li>
+              </ul>
+            </li>
+
+<!--            Chatbot button-->
+            <li style="margin-left:20px;">
+              <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                Launch the chatbot
+              </button>
+            </li>
+
+              <!--              Current location disabled-->
+            <li style="position: absolute; right: 30px;">
+              <a id="loc" class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">{% block c_loc %}{% endblock %}</a>
+            </li>
+          </ul>
+
+          <script type="text/javascript">
+                function googleTranslateElementInit() {
+                  new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.FloatPosition.TOP_LEFT}, 'google_translate_element');
+                }
+
+                function triggerHtmlEvent(element, eventName) {
+                  var event;
+                  if (document.createEvent) {
+                    event = document.createEvent('HTMLEvents');
+                    event.initEvent(eventName, true, true);
+                    element.dispatchEvent(event);
+                  } else {
+                    event = document.createEventObject();
+                    event.eventType = eventName;
+                    element.fireEvent('on' + event.eventType, event);
+                  };
+                };
+
+                $('.lang-select').click(function() {
+                  var theLang = jQuery(this).attr('data-lang');
+                  if (theLang != "en"){
+                     langChanged = true;
+                  }
+                  else{
+                     langChanged = false
+                  };
+                  $('.goog-te-combo').val(theLang);
+                  window.location = $(this).attr('href');
+                  location.reload();
+                });
+            </script>
+          <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+
+
+        </div>
+      </div>
+    </nav>
+    <!----------------------E N D   N A V B A R ------------------------------------------>
+
+    <!------G A L L E R Y------>
+
+        <h1 class="display-5 text-center">OUR GALLERY</h1>
+
+        <div id="galleryCarousel" class="carousel slide" data-bs-ride="carousel">
+          <ol class="carousel-indicators">
+            <li data-bs-target="#galleryCarousel" data-bs-slide-to="0" class="active"></li>
+            <li data-bs-target="#galleryCarousel" data-bs-slide-to="1"></li>
+            <li data-bs-target="#galleryCarousel" data-bs-slide-to="2"></li>
+              <li data-bs-target="#galleryCarousel" data-bs-slide-to="3"></li>
+              <li data-bs-target="#galleryCarousel" data-bs-slide-to="4"></li>
+              <li data-bs-target="#galleryCarousel" data-bs-slide-to="5"></li>
+              <li data-bs-target="#galleryCarousel" data-bs-slide-to="6"></li>
+              <li data-bs-target="#galleryCarousel" data-bs-slide-to="7"></li>
+              <li data-bs-target="#galleryCarousel" data-bs-slide-to="8"></li>
+              <li data-bs-target="#galleryCarousel" data-bs-slide-to="9"></li>
+          </ol>
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img class="d-block w-100" src="http://indianschool.com/cms/uploads/photos/IMG-20201025-WA00181.jpg" alt="First slide">
+            </div>
+            <div class="carousel-item">
+              <img class="d-block w-100" src="http://indianschool.com/cms/uploads/photos/IMG-20201026-WA0005.jpg" alt="Second slide">
+            </div>
+            <div class="carousel-item">
+              <img class="d-block w-100" src="http://indianschool.com/cms/uploads/photos/Polemic_Challenge_2020-Pic11.jpg" alt="Third slide">
+            </div>
+            <div class="carousel-item">
+              <img class="d-block w-100" src="http://indianschool.com/cms/uploads/photos/ISG_CELEBRATES_72_ND_REPUBLIC_DAY_OF_INDIA_PIC_11.jpg" alt="Third slide">
+            </div>
+            <div class="carousel-item">
+              <img class="d-block w-100" src="http://indianschool.com/cms/uploads/photos/REPUBLIC_DAY_OF_INDIA_MARKED_AT_ISG_pic11.jpg" alt="Third slide">
+            </div>
+            <div class="carousel-item">
+              <img class="d-block w-100" src="http://indianschool.com/cms/uploads/photos/ISG_CELEBRATES_GANDHI_JAYANTHI_PIC_6.jpg" alt="Third slide">
+            </div>
+            <div class="carousel-item">
+              <img class="d-block w-100" src="http://indianschool.com/cms/uploads/photos/INDIAN_SCHOOL_AL_GHUBRA_ORGANIZES_SWIMMING_MEETpic_5.JPG" alt="Third slide">
+            </div>
+            <div class="carousel-item">
+              <img class="d-block w-100" src="http://indianschool.com/cms/uploads/photos/IMG_0779.jpg" alt="Third slide">
+            </div>
+            <div class="carousel-item">
+              <img class="d-block w-100" src="http://indianschool.com/cms/uploads/photos/VIRTUAL_INVESTITURE_CEREMONY_AT_ISG_Pic_11.jpg" alt="Third slide">
+            </div>
+            <div class="carousel-item">
+              <img class="d-block w-100" src="http://indianschool.com/cms/uploads/photos/ISG_STUDENT_MAKES_IT_TO_INDIA_BOOK_OF_RECORDS_Arunima_Das1.jpg" alt="Third slide">
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#galleryCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#galleryCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+
+
+<!--    End gallery-->
+
+<!--Start modal-->
+<!-- Modal -->
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <a href="http://127.0.0.1:5000/suggests" target="_blank">
+          <button type="button" id="suggest" name="suggest" class="btn btn-warning" style="position:absolute; right:300px; top:30px;">Not the answer<br>you were looking for?
+          </button>
+      </a>
+      <button id="volLabel" type="button" class="btn btn-primary" disabled>Volume</button>
+      <input type="range" id="volume" min="0" max="100" disabled>
+      <button id="speedLabel" type="button" class="btn btn-primary" disabled>Speed</button>
+      <input type="range" id="speed" min="0" max="100" disabled>
+      <div class="modal-dialog modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">
+                Talk with Kasey -
+                <img src="https://media.giphy.com/media/q4MCvLCmmtakzsBLGt/giphy.gif" height="50">
+            </h5>
+            <button type="button" class="btn btn-info" id="tts" style="margin-left:50px;">Enable narration?</button>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+
+            <form id="chatbotForm">
+                <div id="chatbox">
+                    <div class="col-md-8 ml-auto mr-auto">
+                        <p class="botText"><span>Hi! I'm, Kasey, your personal AI assistant :)</span></p>
+                    </div>
+                </div>
+                <div id="userInput" class="row">
+                    <div class="col-md-10">
+                        <input id="text" type="text" name="msg" placeholder="Message" class="form-control">
+                        <button id="mic" type="button" class="btn"></button>
+                        <br>
+                        <button type="button" name="atc" id="atc" class="btn btn-primary">Autocorrect:</button>
+                        <button type="button" name="wiki" id="wiki" class="btn">Ask Wikipedia</button>
+                    </div>
+                </div>
+            </form>
+
+          </div>
+          <div class="modal-footer">
+              <p>
+                Tip: We have recently collaborated with Wikipedia.
+                To access wikipedia via Kasey, just type your question and press the button
+              </p>
+          </div>
+        </div>
+      </div>
+    </div>
+<!--end modal-->
+<!--end modal-->
+
+<!--Javascript-->
+    <script>
+        //Text to speech stuff
+        var langChanged = false;
+        var ttsCon = false;
+        var speech = new SpeechSynthesisUtterance();
+        speech.lang = "hi";
+        speech.text = "hello there!";
+        speech.volume = 0.8;
+        speech.rate = 0.8;
+
+        // Speech to text stuff
+        var speechRec = new webkitSpeechRecognition();
+        var listening = false;
+        speechRec.continuous = true;
+        speechRec.interimResults = true;
+        const recording = event => {
+            for (w of event.results){
+                //document.getElementById("text").textContent = w[0].transcript;
+                $("#text").val(w[0].transcript);
+            };
+        };
+
+        $(document).ready(function() {
+
+            speechRec.addEventListener("result", recording);
+
+            $.ajax({
+                data:{
+                    stuff: "",
+                },
+                type: "POST",
+                url: "/load_bot",
+            }).done(function(data){
+                data = data.split('#@#');
+                for (i=0; i<data.length; i++){
+                    if (data[i].includes("###")){
+                        var subData = data[i].split("###");
+                        $("#chatbox").append("<p class='userText'><span>" + subData[0] + "</span></p>" + subData[1])
+                    }
+                    else{
+                        $("#chatbox").append("<p>" + data[i] + "<p>");
+                    };
+                };
+            });
+
+            $("#mic").click(function(){
+                listening = !listening;
+                if (listening){
+                    speechRec.start();
+                    $("#mic").css("background-image", "url('https://icons.iconarchive.com/icons/elegantthemes/beautiful-flat/32/mic-icon.png')");
+                }
+                else{
+                    speechRec.stop();
+                    $("#mic").css("background-image", "url('https://icons.iconarchive.com/icons/elegantthemes/beautiful-flat-one-color/32/mic-icon.png')");
+                };
+            });
+
+            $("#wiki").click(function(){
+                let question = $("#text").val();
+                let qHTML = "<p class='userText'>" + question + "</p>";
+                $("#chatbox").append(qHTML);
+                document.getElementById("userInput").scrollIntoView({
+                        block: "start",
+                        behavior: "smooth",
+                    });
+                question = "Wikipedia:" + question;
+                $("#text").val("");
+                $.ajax({
+                    data: {
+                        msg: question,
+                    },
+                    type: "POST",
+                    url: "/get"
+                }).done(function(data){
+                    let answerHTML = "<p class='botText'>" + data + "</p>";
+                    $("#chatbox").append($.parseHTML(answerHTML));
+                    document.getElementById("userInput").scrollIntoView({
+                        block: "start",
+                        behavior: "smooth",
+                    });
+                });
+            });
+
+            $("#chatbotForm").on("submit", function(event) {
+                if ($("html").attr('lang') != "en"){
+                    $.ajax({
+                        data: {
+                            msg: document.documentElement.lang + "%" + ttsCon,
+                        },
+                        type: "POST",
+                        url: "/detect_lang_and_speech",
+                    });
+                };
+                var rawText = $("#text").val();
+                if (rawText != ""){
+                    var userHtml = '<p class="userText"><span>' + rawText + "</span></p>";
+                    $("#text").val("");
+                    $("#chatbox").append(userHtml);
+                    document.getElementById("userInput").scrollIntoView({
+                        block: "start",
+                        behavior: "smooth",
+                    });
+                    $.ajax({
+                        data: {
+                            msg: rawText,
+                        },
+                        type: "POST",
+                        url: "/get",
+                    }).done(function(data) {
+                        data = data.split("###");
+                        res = data[0];
+                        if (data.length > 1){
+                            link = data[1];
+                        }
+                        else{
+                            link = "";
+                        };
+                        var botHtml = '<p class="botText"><span>' + res + "</span></p>" + link;
+                        $("#chatbox").append($.parseHTML(botHtml));
+                        document.getElementById("userInput").scrollIntoView({
+                            block: "start",
+                            behavior: "smooth",
+                        });
+                        speech.text = res;
+                        if (ttsCon == true){
+                            window.speechSynthesis.speak(speech);
+                        };
+                    });
+                }
+                else{
+                    alert("Please enter a valid input");
+                };
+                event.preventDefault();
+            });
+
+            $("input#text").on('keyup', function(){
+                var rText = $("#text").val();
+                $.ajax({
+                    data: {
+                      msg: rText
+                    },
+                    type: "POST",
+                    url: "/autocorrect"
+                }).done(function(data){
+                    data = data.replace("%3F", "?");
+                    data = data.replace("%2C", ",");
+                    $("#atc").html(data)
+                });
+            });
+
+            $("#atc").click(function(e){
+              var corText = $("#atc").text();
+              if (corText != 'Autocorrect:'){
+                 $("#text").val(corText);
+              };
+              e.preventDefault();
+            });
+
+            $("#tts").click(function(e){
+                speech.lang = $("html").attr('lang');
+                ttsCon = !ttsCon;
+                if (($('html').attr('lang') == 'en') || ($('html').attr('lang') == 'hi')){
+                    if (ttsCon == true){
+                        $("#tts").attr('class', 'btn btn-success');
+                        $("#volume").attr('disabled', false);
+                        $("#speed").attr('disabled', false);
+                    }
+                    else{
+                        $("#tts").attr('class', 'btn btn-info');
+                        $("#volume").attr('disabled', true);
+                        $("#speed").attr('disabled', true);
+                    };
+                }
+                else{
+                    alert("Sorry, but we do not support text to speech for this language yet");
+                    ttsCon = false;
+                    $("#tts").attr('class', 'btn btn-info');
+                    $("#volume").attr('disabled', true);
+                    $("#speed").attr('disabled', true);
+                };
+                e.preventDefault();
+            });
+
+            $("#volume").change(function(e){
+                speech.volume = this.value/100;
+            });
+
+            $("#speed").change(function(e){
+                speech.rate = this.value/100;
+            });
+        });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+            crossorigin="anonymous"></script>
+    </body>
+</html>
